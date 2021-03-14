@@ -2,14 +2,23 @@ const express = require('express');
 
 class Server {
     constructor() {
+        /// Atributes
         this.app = express();
         this.port = process.env.PORT;
 
+        /// Middlewares
+
+
+        /// Routes
         this.routes();
     }
 
+    middlewares() {
+        this.app.use( express.static('../public'));
+    }
+
     routes() {
-        this.app.get('/', (req, res) => {
+        this.app.get('/api', (req, res) => {
             res.send('Hello world');
         });
     }
