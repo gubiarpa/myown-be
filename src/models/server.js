@@ -6,6 +6,7 @@ class Server {
         /// Atributes
         this.app = express();
         this.port = process.env.PORT;
+        this.usuariosPath = '/api/usuarios';
 
         /// Middlewares
         this.middlewares();
@@ -23,11 +24,7 @@ class Server {
     }
 
     routes() {
-        this.app.get('/api', (req, res) => {
-            res.status(200).json({
-                name: 'gubiarpa'
-            });
-        });
+        this.app.use(this.usuariosPath, require('../routes/user'));
     }
 
     listen() {
