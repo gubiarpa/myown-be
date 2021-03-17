@@ -1,8 +1,12 @@
 const { Router } = require('express');
-const { usuariosPost } = require('../controllers/usuarios');
+const { usuariosPost, usuariosPut } = require('../controllers/usuarios');
 
 const router = Router();
 
-router.post('/all', usuariosPost);
+/// {POST}
+router.post('/', usuariosPost);
+
+/// {PUT}
+router.put('/:id', usuariosPut);
 
 module.exports = router;
