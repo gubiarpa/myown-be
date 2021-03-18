@@ -1,0 +1,21 @@
+const mongoose = require('mongoose');
+
+const dbCOnnection = async() => {
+    try {
+        await mongoose.connect(process.env.MONGO_CONN, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false
+        });
+
+        console.log('Database connected')
+    } catch (err) {
+        console.log(err);
+        throw new Error('Error starting database');
+    }
+};
+
+module.exports = {
+    dbCOnnection
+}
