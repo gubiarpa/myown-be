@@ -1,7 +1,18 @@
-const { response } = require('express');
+const { response, request } = require('express');
+
+/// {GET}
+const usuariosGet = (req, res) => {
+    const query = req.query;
+
+    res.json({
+        name: 'gubiarpa - GET',
+        query
+    });
+};
+
 
 /// {POST}
-const usuariosPost = (req, res = response) => {
+const usuariosPost = (req = request, res = response) => {
     const { nombre, edad } = req.body;
 
     res.status(200).json({
@@ -12,7 +23,7 @@ const usuariosPost = (req, res = response) => {
 };
 
 /// {PUT}
-const usuariosPut = (req, res = response) => {
+const usuariosPut = (req, res) => {
     const { id } = req.params;
 
     res.json({
@@ -21,4 +32,4 @@ const usuariosPut = (req, res = response) => {
     });
 };
 
-module.exports = { usuariosPost, usuariosPut };
+module.exports = { usuariosPost, usuariosPut , usuariosGet};
