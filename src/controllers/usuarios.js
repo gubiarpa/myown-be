@@ -2,11 +2,15 @@ const { response, request } = require('express');
 
 /// {GET}
 const usuariosGet = (req, res) => {
-    const query = req.query;
+    const { nombre, apellido, edad = 0, page = 1, limit = 10 } = req.query;
 
     res.json({
         name: 'gubiarpa - GET',
-        query
+        nombre,
+        apellido,
+        edad,
+        page,
+        limit
     });
 };
 
