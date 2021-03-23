@@ -1,7 +1,9 @@
 
+/// Loads .env file
 require('dotenv').config();
 
-const Server = require('./models/server');
 
+/// Instance Server object and listen
+const Server = require('./models/server');
 const server = new Server();
 server.listen();
