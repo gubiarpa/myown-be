@@ -17,6 +17,9 @@ const UsuarioSchema = Schema({
     img: {
         type: String,
     },
+    edad: {
+        type: Number,
+    },
     role: {
         type: String,
         required: [true, 'El rol es obligatorio'],
