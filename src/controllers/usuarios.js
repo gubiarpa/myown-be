@@ -21,17 +21,8 @@ const usuariosGet = (req, res) => {
 /// {POST}
 const usuariosPost = async (req = request, res = response) => {
     
-    
-    
     const { nombre, correo, password, role, edad } = req.body;
     const usuario = new Usuario({ nombre, correo, password, role, edad });
-
-    /// Verificar si el correo es válido
-    const existeEmail = await Usuario.findOne({ correo });
-    if (existeEmail) {
-        res.status(400).json({ msg: 'El correo ya existe en la BD' });
-        return;
-    }
 
     /// Encriptar la contraseña
     const salt = bcryptjs.genSaltSync();
@@ -56,4 +47,4 @@ const usuariosPut = (req, res) => {
     });
 };
 
-module.exports = { usuariosPost, usuariosPut , usuariosGet};
+module.exports = { usuariosPost, usuariosPut , usuariosGet };
