@@ -8,9 +8,9 @@ const isValidRole = async (role = '') => {
     }
 }
 
-const existsEmail = async (email) => {
+const existsEmail = async (email = '') => {
     const correo = await Usuario.findOne({ correo: email });
-    console.log('Gubiarpa');
+    console.log('User created');
     if ( correo ) {
         throw new Error(`El mail ${ email } ya existe en la BD.`);
     }
