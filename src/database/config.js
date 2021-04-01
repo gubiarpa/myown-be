@@ -6,7 +6,7 @@ const dbCOnnection = async() => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
-            useFindAndModify: false
+            useFindAndModify: true // let us find and modify a document
         });
 
         console.log('Database connected')
